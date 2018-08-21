@@ -130,7 +130,8 @@ def createFeatureDF(data):
         filepath:           string, path to input file  
     OUTPUTS:
         features:           DataFrame, index is a list of timestamps for each 5 seconds, contains all the features
-        data:               DataFrame, index is a list of timestamps at 8Hz, columns include AccelZ, AccelY, AccelX, Temp, EDA, filtered_eda
+        data:               DataFrame, index is a list of timestamps at 8Hz, columns include AccelZ, AccelY, AccelX,
+                            Temp, EDA, filtered_eda
     '''
     # Load data from q sensor
     wave1sec,waveHalf = getWaveletData(data)
@@ -139,9 +140,11 @@ def createFeatureDF(data):
     timestampList = data.index.tolist()[0::40]
     
     # feature names for DataFrame columns
-    allFeatureNames = ['raw_amp','raw_maxd','raw_mind','raw_maxabsd','raw_avgabsd','raw_max2d','raw_min2d','raw_maxabs2d','raw_avgabs2d','filt_amp','filt_maxd','filt_mind',
-        'filt_maxabsd','filt_avgabsd','filt_max2d','filt_min2d','filt_maxabs2d','filt_avgabs2d','max_1s_1','max_1s_2','max_1s_3','mean_1s_1','mean_1s_2','mean_1s_3',
-        'std_1s_1','std_1s_2','std_1s_3','median_1s_1','median_1s_2','median_1s_3','aboveZero_1s_1','aboveZero_1s_2','aboveZero_1s_3','max_Hs_1','max_Hs_2','mean_Hs_1',
+    allFeatureNames = ['raw_amp','raw_maxd','raw_mind','raw_maxabsd','raw_avgabsd','raw_max2d','raw_min2d',
+                       'raw_maxabs2d','raw_avgabs2d','filt_amp','filt_maxd','filt_mind','filt_maxabsd','filt_avgabsd',
+                       'filt_max2d','filt_min2d','filt_maxabs2d','filt_avgabs2d','max_1s_1',
+                       'max_1s_2','max_1s_3','mean_1s_1','mean_1s_2','mean_1s_3','std_1s_1',
+        'std_1s_2','std_1s_3','median_1s_1','median_1s_2','median_1s_3','aboveZero_1s_1','aboveZero_1s_2','aboveZero_1s_3','max_Hs_1','max_Hs_2','mean_Hs_1',
         'mean_Hs_2','std_Hs_1','std_Hs_2','median_Hs_1','median_Hs_2','aboveZero_Hs_1','aboveZero_Hs_2']
 
     # Initialize Feature Data Frame
